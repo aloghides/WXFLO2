@@ -1,0 +1,11 @@
+<div class="pa4-l">
+  <form class="bg-wxflo-dark-blue mw7 center pa4 br2-ns shadow-3 b--black" (ngSubmit)="updateWeather()">
+    <fieldset class="cf bn ma0 pa0">
+      <div class="cf">
+        <label class="clip" for="location">Location</label>
+        <input class="f6 f5-l input-reset bn fl black-80 bg-white pa3 lh-solid w-100 w-75-m w-80-l br2-ns br--left-ns" placeholder="location search" type="text" name="location" value="" id="location" [(ngModel)]="location">
+        <input class="f6 f5-l button-reset fl pv3 tc bn bg-animate bg-wxflo-light-blue hover-bg-black white pointer w-100 w-25-m w-20-l br2-ns br--right-ns" type="submit" value="Go">
+      </div>
+    </fieldset>
+  </form>
+</div>

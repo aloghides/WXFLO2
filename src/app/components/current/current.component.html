@@ -1,0 +1,75 @@
+<article *ngIf="weatherData">
+  <meta name="Description" content="Current weather">
+    <div class="mw9 center ph3-ns bg-wxflo-dark-blue br3 shadow-3">
+      <div class="cf ph2-ns">
+        <div class ="fl w-100 pa2">
+          <h1 class="f4 near-white mt0 mb0">Current observations near {{ weatherData.meta.properties.relativeLocation.properties.city }}, {{ weatherData.meta.properties.relativeLocation.properties.state }}</h1>
+        </div>
+        <div class="fl w-100 w-30-ns pa2">
+          <div class="bg-wxflo-light-blue pv4 br4 ba bw2">
+            <div class="mw9 center ph3-ns">
+              <div class="cf ph2-ns">
+                <div class="fl w-100 w-50-ns pa2">
+                  <div class="bg-wxflo-light-blue">
+                    <div class="tc">
+                      <h1 class="f6 near-white mb1">Winds {{weatherData.obsData.properties.windDirection.value | windDirection }} {{weatherData.obsData.properties.windSpeed.value | windSpeed: 'kph':'mph'}}</h1>
+                      <img [src]="weatherData.obsData.properties.icon" class="br3 h9 w9 dib" alt="" title={{weatherData.obsData.properties.textDescription}}>
+                      <h2 class="f3 near-white mb1">{{ weatherData.obsData.properties.textDescription }}</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="fl w-100 w-50-ns pa2">
+                  <div class="bg-wxflo-light-blue pv1">
+                    <h1 class="f2 pt4 near-white mb2">{{ weatherData.obsData.properties.temperature.value | temperature: 'c':'f' }}</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="fl w-100 w-20-ns pa1">
+          <div class="bg-wxflo-dark-blue">
+            <div class="pa2">
+              <dl class="f5 lh-title mv2">
+                <dt class="dib near-white">Relative Humidity:&nbsp;&nbsp;</dt>
+                <dd class="dib ml0 light-green">{{ weatherData.obsData.properties.relativeHumidity.value | number:'1.0-1' }}%</dd>
+              </dl>
+              <dl class="f5 lh-title mv2">
+                <dt class="dib near-white">Dewpoint:&nbsp;&nbsp;</dt>
+                <dd class="dib ml0 light-green">{{ weatherData.obsData.properties.dewpoint.value | temperature: 'c':'f' }}</dd>
+              </dl>
+              <dl class="f5 lh-title mv2">
+                <dt class="dib near-white">Pressure:&nbsp;&nbsp;</dt>
+                <dd class="dib ml0 light-green">{{ (weatherData.obsData.properties.barometricPressure.value * .01) | number:'1.0-1' }} mb</dd>
+              </dl>
+              <dl class="f5 lh-title mv2" *ngIf="weatherData.forecast.properties.periods[0].isDaytime">
+                <dt class="dib near-white">Expected High:&nbsp;&nbsp;</dt>
+                <dd class="dib ml0 light-red">{{ weatherData.forecast.properties.periods[0].temperature | temperature: 'F' }}</dd>
+              </dl>
+              <dl class="f5 lh-title mv2" *ngIf="weatherData.forecast.properties.periods[1].isDaytime">
+                <dt class="dib near-white">Expected High:&nbsp;&nbsp;</dt>
+                <dd class="dib ml0 light-red">{{ weatherData.forecast.properties.periods[1].temperature | temperature: 'F' }}</dd>
+              </dl>
+              <dl class="f5 lh-title mv2" *ngIf="!weatherData.forecast.properties.periods[0].isDaytime">
+                <dt class="dib near-white">Expected Low:&nbsp;&nbsp;</dt>
+                <dd class="dib ml0 light-blue">{{ weatherData.forecast.properties.periods[0].temperature | temperature: 'F' }}</dd>
+              </dl>
+              <dl class="f5 lh-title mv2" *ngIf="!weatherData.forecast.properties.periods[1].isDaytime">
+                <dt class="dib near-white">Expected Low:&nbsp;&nbsp;</dt>
+                <dd class="dib ml0 light-blue">{{ weatherData.forecast.properties.periods[1].temperature | temperature: 'F' }}</dd>
+              </dl>
+            </div>         
+          </div>
+        </div>
+        <div class="fl w-100 w-50-ns pa2">
+          <div class="bg-wxflo-dark-blue pv4">
+            <p class="near-white pa2">{{ weatherData.forecast.properties.periods[0].detailedForecast }}</p>
+          </div>
+        </div>
+        <div class ="fl w-100 pa2">
+          <h1 class="f6 near-white mt0 mb0">Latest Observation {{ weatherData.obsData.properties.timestamp | date:"short"}}</h1>
+        </div>
+      </div>
+    </div>
+</article>
+  

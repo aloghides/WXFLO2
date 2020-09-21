@@ -1,0 +1,24 @@
+<article *ngIf='weatherData' class="mw9 center mt3 br3 shadow-3 bg-wxflo-dark-blue pb10">
+  <meta name="Description" content="Get the daily WXFlo weather forecast information here">
+    <div class="bb bw2"><h1 class="mv1 f3 near-white tc">WXFlo Day and Night</h1></div>
+    <div class="overflow-x-scroll nowrap">
+      <div class="dt-ns dt--fixed-ns w-100">
+        <div class="dtc-ns">
+          <article *ngFor="let point of weatherData.forecast.properties.periods" class="bg-wxflo-light-blue bb bl br black mh3 w-100 w-50-m w-25-l mw5 center dib">
+            <img [src]="point.icon" class="db br2 center" alt="forecast">
+            <div class="pa2 ph3-ns pb3-ns">
+              <div class="dt dt--fixed w-100 mt1">
+                <div class="dtc">
+                  <h1 class="f5 f4-ns near-white mv0">{{point.name}}</h1>
+                </div>
+                <div class="dtc tr">
+                  <h2 class="f5 near-white mv0">{{point.temperature}}&deg;F</h2>
+                </div>
+              </div>
+              <p class="h3 f5 measure mt0 mb0 fl ws-normal near-white">{{point.shortForecast}}</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+</article>
