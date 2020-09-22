@@ -4,8 +4,8 @@
     <div class="overflow-x-scroll nowrap">
       <div class="dt-ns dt--fixed-ns w-100">
         <div class="dtc-ns">
-          <article *ngFor="let point of weatherData.forecastHourly.properties.periods | slice:0:12" class="bg-wxflo-light-blue bb bl br black w-100 w-50-m w-25-l mw5 center dib">
-            <img [src]="point.icon" class="db br2 center" alt="forecast">
+          <article *ngFor="let point of weatherData.forecastHourly.properties.periods | slice:0:12" class="bg-wxflo-gradient-blue bb bl br black w-100 w-50-m w-25-l mw5 center dib">
+            <img [src]="point.icon | nwsIcons: 'large':'20'" class="db br2 center" alt="forecast">
             <div class="pa2 ph3-ns pb3-ns">
               <div class="dt w-100 mt1">
                 <div class="dtc">

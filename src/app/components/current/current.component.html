@@ -13,7 +13,7 @@
                   <div class="">
                     <div class="tc">
                       <h1 class="f6 near-white mb1">Winds {{weatherData.obsData.properties.windDirection.value | windDirection }} {{weatherData.obsData.properties.windSpeed.value | windSpeed: 'kph':'mph'}}</h1>
-                      <img [src]="weatherData.obsData.properties.icon" class="br3 h9 w9 dib" alt="" title={{weatherData.obsData.properties.textDescription}}>
+                      <img [src]="weatherData.obsData.properties.icon | nwsIcons: 'large'" class="br3 h9 w9 dib" alt="" title={{weatherData.obsData.properties.textDescription}}>
                       <h2 class="f3 near-white mb1">{{ weatherData.obsData.properties.textDescription }}</h2>
                     </div>
                   </div>

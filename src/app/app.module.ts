@@ -13,12 +13,14 @@ import { CurrentComponent } from './components/current/current.component';
 import { HourlyComponent } from './components/hourly/hourly.component';
 import { ForecastComponent } from './components/forecast/forecast.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 // Pipes
 import { DecimalPipe } from '@angular/common';
 import { TemperaturePipe } from './pipes/temperature/temperature.pipe';
 import { WindDirectionPipe } from './pipes/wind/windDirection.pipe';
 import { WindSpeedPipe } from './pipes/wind/windSpeed.pipe';
+import { NwsIconsPipe } from './pipes/site/nwsIcons.pipe';
 
 @NgModule({
   declarations: [
@@ -28,9 +30,11 @@ import { WindSpeedPipe } from './pipes/wind/windSpeed.pipe';
     HourlyComponent,
     ForecastComponent,
     NavigationComponent,
+    FooterComponent,
     TemperaturePipe,
     WindDirectionPipe,
-    WindSpeedPipe
+    WindSpeedPipe,
+    NwsIconsPipe
   ],
   imports: [
     BrowserModule,
