@@ -21,6 +21,10 @@ import { TemperaturePipe } from './pipes/temperature/temperature.pipe';
 import { WindDirectionPipe } from './pipes/wind/windDirection.pipe';
 import { WindSpeedPipe } from './pipes/wind/windSpeed.pipe';
 import { NwsIconsPipe } from './pipes/site/nwsIcons.pipe';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { NwsCurrentIconPipe } from './pipes/site/nwsCurrentIcon.pipe';
+import { PressurePipe } from './pipes/pressure/pressure.pipe';
 
 @NgModule({
   declarations: [
@@ -34,14 +38,17 @@ import { NwsIconsPipe } from './pipes/site/nwsIcons.pipe';
     TemperaturePipe,
     WindDirectionPipe,
     WindSpeedPipe,
-    NwsIconsPipe
+    PressurePipe,
+    NwsIconsPipe,
+    NwsCurrentIconPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     DecimalPipe
